@@ -1,5 +1,11 @@
 # Rater Analytics — Demo
 
+### Live Demo
+- Streamlit Cloud: https://rater-bias-project-ytwmnhn55l73tuzbwcwsru.streamlit.app/
+
+This project demonstrates how to measure inter-rater agreement (Cohen’s κ, Fleiss’ κ, Krippendorff’s α),
+surface slice-level bias (chi-square), and compute throughput in a rater program.
+
 Small project to demonstrate rater agreement metrics, bias slices, per-rater scorecards, and a minimal Streamlit demo.
 
 Quickstart:
