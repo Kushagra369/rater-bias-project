@@ -2,8 +2,6 @@
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
-*.DS_Store
 
 # Virtual envs
 .venv/
@@ -16,12 +14,12 @@ venv/
 .streamlit/cache/
 .streamlit/secrets.toml
 
-# OS/Editors
+# Editors/OS
 .vscode/
 .idea/
+.DS_Store
 
 # Build
 dist/
 build/
 *.egg-info/
-

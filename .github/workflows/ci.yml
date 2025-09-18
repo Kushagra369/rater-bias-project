@@ -1,36 +1,27 @@
 name: CI
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Set up Python
-      uses: actions/setup-python@v5
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
       with:
-        python-version: "3.11"
-
-    - name: Install dependencies
+        python-version: "3.13"
+    - name: Install deps
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
-    # Lightweight lint (won't fail the build if warnings appear)
     - name: Lint (flake8)
       run: |
         python -m pip install flake8
         flake8 analysis app.py || true
-
-    # Smoke test: run the CLI on your included CSV
-    - name: Smoke test (bias_detection.py)
+    - name: Smoke test
       run: |
+        # ensure sample data exists for CI smoke test
+        python scripts/generate_sim_data.py
         python analysis/bias_detection.py --input data/sim_rater_dataset.csv
